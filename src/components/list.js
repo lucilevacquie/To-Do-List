@@ -1,18 +1,58 @@
 import React, {Component} from "react";
 import styled from "styled-components";
 
-const ListContainer = styled.div``;
+const ListContainer = styled.div`
+    display: grid;
+    grid-template-rows: 50px 50px 1fr;
+`;
 
-const ListTitle = styled.div``;
+const ListTitle = styled.div`
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 24px;
+`;
+
+const InputWrapper = styled.div`
+    text-align: center;
+    padding: 1rem 0;
+    input {
+        border: none;
+        border-bottom: solid grey 1px;
+        background-color: transparent;
+    }
+`;
 
 const AddButton = styled.button`
     border-radius: 10px;
     margin-left: 1rem;
+    width: 50px;
+    text-align: center;
+    border: none;
+    background-color: #c53334;
+    color: white;
+    padding: 2px 0;
+`;
+
+const ItemList = styled.ul`
+    margin: 1.5rem;
+    padding-left: 3.5rem;
+    padding-top: 1rem;
+    background-color: white;
+    height: 100%;
+`;
+
+const Item = styled.li`
+    font-size: 18px;
 `;
 
 const DeleteButton = styled.button`
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     margin-left: 1rem;
+    border: none;
+    background-color: #c53334;
+    color: white;
 `;
 
 class List extends Component {
@@ -59,31 +99,31 @@ class List extends Component {
       return (
         <ListContainer>
             <ListTitle>To Do List</ListTitle>
-          <br/>
+          <InputWrapper>
           <input
             type="text"
             placeholder="Type item here..."
             value={this.state.newItem}
             onChange={e => this.updateInput("newItem", e.target.value)}
-          ></input>
+          >
+          </input>
           <AddButton
             onClick={() => this.addItem()}
-          >
-            Add
-          </AddButton>
-          <br/>
-          <ul>
+          >Add</AddButton>
+          </InputWrapper>
+          
+          <ItemList>
             {this.state.list.map(item => {
               return (
-                <li key={item.id}>
+                <Item key={item.id}>
                   {item.value}
                   <DeleteButton
                     onClick={() => this.deleteItem(item.id)}
                   >X</DeleteButton>
-                </li>
+                </Item>
               )
             })}
-          </ul>
+          </ItemList>
         </ListContainer>
       );
     }

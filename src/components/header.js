@@ -7,6 +7,7 @@ const HeadContainer = styled.div`
     grid-template-columns: 20% 80%;
     align-items: center;
     padding: 1rem 0;
+    background-color: #a3bed3;
 `;
 
 const Title = styled.div`

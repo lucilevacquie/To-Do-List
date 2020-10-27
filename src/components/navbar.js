@@ -4,7 +4,7 @@ import EasyList from "../pages/easylist";
 import DailyTask from "../pages/dailytask";
 import TypeOfList from "../pages/typeoflists";
 import Calendar from "../pages/calendar";
-import MenuIcon from "../assets/menu-icon.jpg";
+import MenuIcon from "../assets/menu-icon.png";
 
 const data = [
     {
@@ -16,7 +16,7 @@ const data = [
         path: DailyTask
     },
     {
-        id: "Type of list",
+        id: "Special occasion",
         path: TypeOfList
     },
     {
@@ -40,8 +40,8 @@ const Button = styled.button`
 `;
 
 const Icon = styled.img `
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 30px;
     cursor: pointer;
 `;
 
