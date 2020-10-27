@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import styled from "styled-components";
 import List from "./components/list";
 import Header from "./components/header";
-import Navbar from "./components/navbar";
 
 const Container = styled.div`
   margin: 0;
@@ -18,7 +17,6 @@ class App extends Component {
     return (
     <Container>
       <Header/>
-      <Navbar/>
       <List/>
     </Container>
     );

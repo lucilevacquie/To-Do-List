@@ -1,8 +1,12 @@
 import React, {Component} from "react";
 import styled from "styled-components";
+import Navbar from "./navbar";
 
 const HeadContainer = styled.div`
-    margin: 0;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+    padding: 1rem 0;
 `;
 
 const Title = styled.div`
@@ -15,6 +19,7 @@ class Header extends Component {
     render(){
         return (
             <HeadContainer>
+                <Navbar/>
                 <Title>Control Freak</Title>
             </HeadContainer>
         )
