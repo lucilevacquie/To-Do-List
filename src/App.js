@@ -8,7 +8,6 @@ const Container = styled.div`
   padding: 0;
   height: 100%;
   width: 100%;
-  background-color: #f1e4da;
 `
 
 class App extends Component {

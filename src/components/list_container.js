@@ -61,7 +61,7 @@ class List extends Component {
     }
   
     addItem(event){
-        event.preventDefault();
+      event.preventDefault();
       const newItem ={
         id: 1 + Math.random(),
         value: this.state.newItem.slice()
@@ -84,6 +84,18 @@ class List extends Component {
   
       this.setState({list: updatedList});
     }
+
+    updateText(event, id){
+      const list = this.state.list;
+
+      list.forEach((item) => {
+        if (item.id === id){
+          item.value = event.target.value;
+        }
+      })
+
+      this.setState({list});
+    }
   
     render(){
       return (
@@ -103,7 +115,7 @@ class List extends Component {
           
           <ItemList>
             {this.state.list.map(item => {
-              return <ListItem key={item.id} onDeleteItem={this.deleteItem} item={item}/>
+              return <ListItem key={item.id} onDeleteItem={this.deleteItem.bind(this)} onChangeText={this.updateText.bind(this)} item={item}/>
             })}
           </ItemList>
         </ListContainer>

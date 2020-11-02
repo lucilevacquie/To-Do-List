@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
+import Label from "../assets/label-icon.png";
 
 const Colors = [    
     {
@@ -12,7 +13,19 @@ const Colors = [
     },
     {
         id: "Orange",
-        value: "#FFCC00"
+        value: "#ff6600"
+    },
+    {
+        id: "Pink",
+        value: "#ff0066"
+    },
+    {
+        id: "Purple",
+        value: "#990099"
+    },
+    {
+        id: "Blue",
+        value: "#3333cc"
     },
     {
         id: "Green",
@@ -21,28 +34,59 @@ const Colors = [
 ]
 
 const Container = styled.div`
-    width: 100px;
+    width: 20px;
+    position: relative;
 `;
 
-const Options = styled.select`
-    display: block;
+const Title = styled.div`
+    width: 20px;
+    height: 20px;
+`;
+
+const LabelIcon = styled.img`
+    width: 100%;
+    height: 100%;
+`;
+
+const Options = styled.div`
+    height: ${(props) => props.showPanel ? "auto" : "0"};
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    margin-top: 7px;
+    background-color: white;
+    z-index: 1;
 `;
 
-const Option = styled.option``;
+const Option = styled.option`
+    background-color:${(props) => props.value};
+    box-sizing: border-box;
+    width: 17px;
+    height: 17px;
+    margin: 3px;
+`;
 
 
 const ColorDropdown = ({onSetColor}) => {
 
-    const changeColor = (e) => onSetColor(e.target.value)
+    const [show, setShow] = useState(false);
+
+    const changeColor = (e) => {
+        onSetColor(e.target.value)
+        setShow(!show)
+    };
 
     return(
         <Container>
-                <Options name="colors" id="colors" onChange={changeColor}>
-                    {Colors.map((item) => (
-                        <Option key={item.id} value={item.value}>{item.id}</Option>
-                    ))}
-                </Options>
+            <Title onClick={() => setShow(!show)}>
+                <LabelIcon src={Label} alt="Change color"/>
+            </Title>
+            <Options onChange={changeColor} showPanel={show}>
+                {Colors.map((item) => (
+                    <Option key={item.id} value={item.value} onClick={changeColor}></Option>
+                ))}
+            </Options>
         </Container>
     )
 }
