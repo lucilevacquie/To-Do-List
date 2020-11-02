@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import styled from "styled-components";
+import Dropdown from "./dropdown";
 
 const ListContainer = styled.div`
     display: grid;
@@ -12,7 +13,7 @@ const ListTitle = styled.div`
     font-size: 24px;
 `;
 
-const InputWrapper = styled.div`
+const InputWrapper = styled.form`
     text-align: center;
     padding: 1rem 0;
     input {
@@ -23,36 +24,43 @@ const InputWrapper = styled.div`
 `;
 
 const AddButton = styled.button`
-    border-radius: 10px;
+    border-radius: 50%;
     margin-left: 1rem;
-    width: 50px;
+    width: 28px;
+    height: 28px;
     text-align: center;
     border: none;
     background-color: #c53334;
     color: white;
-    padding: 2px 0;
+    font-size: 18px;
+    font-style: bold;
 `;
+
 
 const ItemList = styled.ul`
     margin: 1.5rem;
-    padding-left: 3.5rem;
-    padding-top: 1rem;
-    background-color: white;
+    padding-left: 1.5rem;
     height: 100%;
 `;
 
 const Item = styled.li`
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 100%;
+`;
+
+const Value = styled.div`
     font-size: 18px;
 `;
 
 const DeleteButton = styled.button`
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
-    margin-left: 1rem;
     border: none;
     background-color: #c53334;
     color: white;
+    font-size: 14px;
 `;
 
 class List extends Component {
@@ -71,7 +79,8 @@ class List extends Component {
       });
     }
   
-    addItem(){
+    addItem(event){
+        event.preventDefault();
       const newItem ={
         id: 1 + Math.random(),
         value: this.state.newItem.slice()
@@ -99,7 +108,7 @@ class List extends Component {
       return (
         <ListContainer>
             <ListTitle>To Do List</ListTitle>
-          <InputWrapper>
+          <InputWrapper onSubmit={(event) => this.addItem(event)}>
           <input
             type="text"
             placeholder="Type item here..."
@@ -107,19 +116,19 @@ class List extends Component {
             onChange={e => this.updateInput("newItem", e.target.value)}
           >
           </input>
-          <AddButton
-            onClick={() => this.addItem()}
-          >Add</AddButton>
+          <AddButton type="submit"
+          >+</AddButton>
           </InputWrapper>
           
           <ItemList>
             {this.state.list.map(item => {
               return (
                 <Item key={item.id}>
-                  {item.value}
-                  <DeleteButton
+                    <DeleteButton
                     onClick={() => this.deleteItem(item.id)}
-                  >X</DeleteButton>
+                    >X</DeleteButton>
+                    <Value>{item.value}</Value>
+                    <Dropdown/>
                 </Item>
               )
             })}
