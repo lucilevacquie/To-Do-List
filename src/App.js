@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import styled from "styled-components";
-import List from "./components/list";
+import List from "./components/list_container";
 import Header from "./components/header";
 
 const Container = styled.div`
