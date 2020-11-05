@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import {NavLink, BrowserRouter as Router} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 import EasyList from "../pages/easylist";
 import DailyTask from "../pages/dailytask";
@@ -100,15 +100,13 @@ const Navbar = () => {
             <CloseButton onClick={() => setShow(!show)}>&times;</CloseButton>
             <div>
 
-            <Router>
-                <Links>
-                    {data.map(item => (
-                        <NavLink key={item.id} to={item.link}>
-                            {item.id}
-                        </NavLink>
-                    ))}
-                </Links>
-            </Router>
+            <Links>
+                {data.map(item => (
+                    <NavLink key={item.id} to={item.link} onClick={() => setShow(!show)}>
+                        {item.id}
+                    </NavLink>
+                ))}
+            </Links>
                 
             </div>
         </Sidebar>

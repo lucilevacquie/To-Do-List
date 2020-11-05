@@ -1,17 +1,11 @@
 import React, {Component} from "react";
 import styled from "styled-components";
 import ListItem from "./list";
-import AddIcon from "../assets/add-icon.png";
+import AddIcon from "../../assets/add-icon.png";
 
 const ListContainer = styled.div`
   display: grid;
   grid-template-rows: 50px 50px 1fr;
-`;
-
-const ListTitle = styled.div`
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 24px;
 `;
 
 const InputWrapper = styled.form`
@@ -98,11 +92,13 @@ class List extends Component {
 
       this.setState({list});
     }
+
+    
   
     render(){
       return (
         <ListContainer>
-            <ListTitle>To Do List</ListTitle>
+        
           <InputWrapper onSubmit={(event) => this.addItem(event)}>
           <input
             type="text"

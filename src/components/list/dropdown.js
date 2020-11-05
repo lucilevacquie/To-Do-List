@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import Label from "../assets/label-icon.png";
+
+import Label from "../../assets/label-icon.png";
 
 const Colors = [    
     {

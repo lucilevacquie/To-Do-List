@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import PenIcon from "../assets/pen-icon.png";
+import PenIcon from "../../assets/pen-icon.png";
 
 const Container = styled.div `
     width: 20px;

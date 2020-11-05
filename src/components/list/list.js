@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import styled from "styled-components";
+
 import Dropdown from "./dropdown";
 import Edit from "./edit";
-import CrossIcon from "../assets/delete-icon.png";
+import CrossIcon from "../../assets/delete-icon.png";
 
 
 

@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import styled from "styled-components";
 import {Switch, Route, BrowserRouter as Router} from "react-router-dom";
 
@@ -39,22 +39,19 @@ const Container = styled.div`
   width: 100%;
 `
 
-class App extends Component {
-
-  render(){
+const App = () => {
     return (
     <Container>
-      <Header/>
       <Router>
+        <Header/>
         <Switch>
           {data.map(item => (
-            <Route key={item.id} path={item.link} component={item.path}/>
+            <Route key={item.id} exact path={item.link} component={item.path}/>
           ))}
         </Switch>
       </Router>
     </Container>
     );
   }
-}
 
 export default App;
