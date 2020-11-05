@@ -2,14 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import {Switch, Route, BrowserRouter as Router} from "react-router-dom";
 
+import Home from "./pages/home";
 import EasyList from "./pages/easylist";
 import DailyTask from "./pages/dailytask";
 import TypeOfList from "./pages/typeoflists";
 import Calendar from "./pages/calendar";
+import Travel from "./pages/travel";
+import Shopping from "./pages/shopping";
 
 import Header from "./components/header";
 
 const data = [
+  {
+    id: "Home",
+    path: Home,
+    link: "/"
+  },
   {
       id: "Easy list",
       path: EasyList,
@@ -29,6 +37,16 @@ const data = [
       id: "Calendar",
       path: Calendar,
       link: "/calendar"
+  },
+  {
+    id: "Travel List",
+    path: Travel,
+    link: "/travel"
+  },
+  {
+    id: "Shopping List",
+    path: Shopping,
+    link: "/shopping"
   },
 ]
 

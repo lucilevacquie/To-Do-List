@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import {NavLink} from "react-router-dom";
 
+import Home from "../pages/home";
 import EasyList from "../pages/easylist";
 import DailyTask from "../pages/dailytask";
 import TypeOfList from "../pages/typeoflists";
@@ -11,17 +12,22 @@ import MenuIcon from "../assets/menu-icon.png";
 
 const data = [
     {
+        id: "Home",
+        path: Home,
+        link: "/"
+    },
+    {
         id: "Easy list",
         path: EasyList,
         link: "/easylist"
     },
     {
-        id: "Daily task",
+        id: "Daily tasks",
         path: DailyTask,
         link: "/dailytask"
     },
     {
-        id: "Special occasion",
+        id: "Special occasions",
         path: TypeOfList,
         link: "/specialoccasion"
     },
