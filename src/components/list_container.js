@@ -1,44 +1,46 @@
 import React, {Component} from "react";
 import styled from "styled-components";
 import ListItem from "./list";
+import AddIcon from "../assets/add-icon.png";
 
 const ListContainer = styled.div`
-    display: grid;
-    grid-template-rows: 50px 50px 1fr;
+  display: grid;
+  grid-template-rows: 50px 50px 1fr;
 `;
 
 const ListTitle = styled.div`
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 24px;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 24px;
 `;
 
 const InputWrapper = styled.form`
-    text-align: center;
-    padding: 1rem 0;
-    input {
-        border: none;
-        border-bottom: solid grey 1px;
-        background-color: transparent;
-    }
+  text-align: center;
+  padding: 1rem 0;  
+  display: grid;
+  grid-template-columns: 80% 20%;
+  input {
+    border: none;
+    border-bottom: solid grey 1px;
+    background-color: transparent;
+    margin-left: 3rem;
+  }
 `;
 
 const AddButton = styled.button`
-    border-radius: 50%;
-    margin-left: 1rem;
-    width: 28px;
-    height: 28px;
-    text-align: center;
-    border: none;
-    background-color: #c53334;
-    color: white;
-    font-size: 18px;
-    font-style: bold;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  border-color: transparent;
+`;
+
+const Add = styled.img`
+  width: 25px;
+  height: 25px;
 `;
 
 const ItemList = styled.ul`
-    margin: 1.5rem;
-    padding-left: 1.5rem;
+    margin-left: 0.5rem;
     height: 100%;
     line-height: 2rem;
 `;
@@ -110,7 +112,9 @@ class List extends Component {
           >
           </input>
           <AddButton type="submit"
-          >+</AddButton>
+          >
+            <Add src={AddIcon} alt="Add item"/>
+          </AddButton>
           </InputWrapper>
           
           <ItemList>

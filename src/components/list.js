@@ -8,7 +8,7 @@ import CrossIcon from "../assets/delete-icon.png";
 
 const Item = styled.li`
     display: grid;
-    grid-template-columns: 70% 10% 10% 10%;
+    grid-template-columns: 200px 10% 10% 10%;
     width: 100%;
     align-items: center;
 `;

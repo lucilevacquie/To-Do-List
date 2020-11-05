@@ -1,7 +1,36 @@
 import React, {Component} from "react";
 import styled from "styled-components";
-import List from "./components/list_container";
+import {Switch, Route, BrowserRouter as Router} from "react-router-dom";
+
+import EasyList from "./pages/easylist";
+import DailyTask from "./pages/dailytask";
+import TypeOfList from "./pages/typeoflists";
+import Calendar from "./pages/calendar";
+
 import Header from "./components/header";
+
+const data = [
+  {
+      id: "Easy list",
+      path: EasyList,
+      link: "/easylist"
+  },
+  {
+      id: "Daily task",
+      path: DailyTask,
+      link: "/dailytask"
+  },
+  {
+      id: "Special occasion",
+      path: TypeOfList,
+      link: "/specialoccasion"
+  },
+  {
+      id: "Calendar",
+      path: Calendar,
+      link: "/calendar"
+  },
+]
 
 const Container = styled.div`
   margin: 0;
@@ -16,7 +45,13 @@ class App extends Component {
     return (
     <Container>
       <Header/>
-      <List/>
+      <Router>
+        <Switch>
+          {data.map(item => (
+            <Route key={item.id} path={item.link} component={item.path}/>
+          ))}
+        </Switch>
+      </Router>
     </Container>
     );
   }
