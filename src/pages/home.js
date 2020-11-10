@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Title from "../components/list/list_title";
 import ChoiceBoard from "../components/choice_board";
+import {useLoginContext} from "../loginProvider";
 
 const data = [
     {
@@ -26,9 +27,12 @@ const data = [
 const Container = styled.div``;
 
 const Home = () => {
+
+    const {username} = useLoginContext()
+
     return (
         <Container>
-            <Title>Hello Bob!</Title>
+            <Title>Hello {username}!</Title>
             <Title>What kind of Control Freak you want to be today?</Title>
             <ChoiceBoard data={data}/>
         </Container>

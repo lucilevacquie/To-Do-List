@@ -7,6 +7,7 @@ import EasyList from "../pages/easylist";
 import DailyTask from "../pages/dailytask";
 import TypeOfList from "../pages/typeoflists";
 import Calendar from "../pages/calendar";
+import {useLoginContext} from "../loginProvider";
 
 import MenuIcon from "../assets/menu-icon.png";
 
@@ -97,6 +98,8 @@ const Navbar = () => {
 
     const [show, setShow] = useState(false);
 
+    const {logout} = useLoginContext()
+
     return (
         <NavbarContainer>
             <Button onClick={() => setShow(!show)}>
@@ -112,6 +115,7 @@ const Navbar = () => {
                         {item.id}
                     </NavLink>
                 ))}
+                <NavLink to="/" onClick={() => logout()}>Logout</NavLink>
             </Links>
                 
             </div>

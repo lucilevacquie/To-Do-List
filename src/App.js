@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import {Switch, Route, BrowserRouter as Router} from "react-router-dom";
 
-// import Welcome from "./pages/welcome";
+import Welcome from "./pages/welcome";
 import Home from "./pages/home";
 import EasyList from "./pages/easylist";
 import DailyTask from "./pages/dailytask";
@@ -12,42 +12,56 @@ import Travel from "./pages/travel";
 import Shopping from "./pages/shopping";
 
 import Header from "./components/header";
+import {useLoginContext} from "./loginProvider";
 
 const data = [
   {
+    id: "Welcome",
+    auth: false,
+    component: Welcome,
+    path: "/"
+  },
+  {
     id: "Home",
-    path: Home,
-    link: "/"
+    auth: true,
+    component: Home,
+    path: "/"
   },
   {
     id: "Easy list",
-    path: EasyList,
-    link: "/easylist"
+    auth: true,
+    component: EasyList,
+    path: "/easylist"
   },
   {
     id: "Daily task",
-    path: DailyTask,
-    link: "/dailytask"
+    auth: true,
+    component: DailyTask,
+    path: "/dailytask"
   },
   {
     id: "Special occasion",
-    path: TypeOfList,
-    link: "/specialoccasion"
+    auth: true,
+    component: TypeOfList,
+    path: "/specialoccasion"
   },
   {
     id: "Calendar",
-    path: Calendar,
-    link: "/calendar"
+    auth: true,
+    component: Calendar,
+    path: "/calendar"
   },
   {
     id: "Travel List",
-    path: Travel,
-    link: "/travel"
+    auth: true,
+    component: Travel,
+    path: "/travel"
   },
   {
     id: "Shopping List",
-    path: Shopping,
-    link: "/shopping"
+    auth: true,
+    component: Shopping,
+    path: "/shopping"
   },
 ]
 
@@ -59,18 +73,34 @@ const Container = styled.div`
 `
 
 const App = () => {
-    return (
-    <Container>
-      <Router>
-        <Header/>
-        <Switch>
-          {data.map(item => (
-            <Route key={item.id} exact path={item.link} component={item.path}/>
-          ))}
-        </Switch>
-      </Router>
-    </Container>
-    );
+
+  const {isLoggedIn, login} = useLoginContext()
+
+  const getRoute = (item) => {
+    if ((item.auth && isLoggedIn) || (!item.auth && !isLoggedIn)){
+      return <Route key={item.id} exact path={item.path} component={item.component}/>
+    } 
   }
+
+  useEffect(() => {
+    const username = localStorage.getItem("username")
+    if (username){
+      login(username)
+    } 
+  }, [login])
+
+  return (
+  <Container>
+    <Router>
+      {isLoggedIn && 
+        <Header/>
+      }
+      <Switch>
+        {data.map(item => getRoute(item))}
+      </Switch>
+    </Router>
+  </Container>
+  );
+}
 
 export default App;

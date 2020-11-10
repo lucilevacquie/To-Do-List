@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {createGlobalStyle} from "styled-components";
 import "./style.scss";
+import LoginProvider from "./loginProvider";
 
 const GlobalStyle = createGlobalStyle `
 
@@ -15,7 +16,9 @@ const GlobalStyle = createGlobalStyle `
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle/>
-    <App/>
+    <LoginProvider>
+      <App/>
+    </LoginProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
