@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {createGlobalStyle} from "styled-components";
+import "./style.scss";
 
 const GlobalStyle = createGlobalStyle `
+
   body {
     margin: 0;
     padding: 0;

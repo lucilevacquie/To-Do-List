@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {Switch, Route, BrowserRouter as Router} from "react-router-dom";
 
+// import Welcome from "./pages/welcome";
 import Home from "./pages/home";
 import EasyList from "./pages/easylist";
 import DailyTask from "./pages/dailytask";
@@ -19,24 +20,24 @@ const data = [
     link: "/"
   },
   {
-      id: "Easy list",
-      path: EasyList,
-      link: "/easylist"
+    id: "Easy list",
+    path: EasyList,
+    link: "/easylist"
   },
   {
-      id: "Daily task",
-      path: DailyTask,
-      link: "/dailytask"
+    id: "Daily task",
+    path: DailyTask,
+    link: "/dailytask"
   },
   {
-      id: "Special occasion",
-      path: TypeOfList,
-      link: "/specialoccasion"
+    id: "Special occasion",
+    path: TypeOfList,
+    link: "/specialoccasion"
   },
   {
-      id: "Calendar",
-      path: Calendar,
-      link: "/calendar"
+    id: "Calendar",
+    path: Calendar,
+    link: "/calendar"
   },
   {
     id: "Travel List",

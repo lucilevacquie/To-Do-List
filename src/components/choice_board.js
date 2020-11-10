@@ -12,6 +12,7 @@ const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 150px);
     grid-template-rows: repeat(2, 80px);
+    grid-row-gap: 1rem;
     justify-content: center;
     padding-top: 1.5rem;
 `;
@@ -28,14 +29,29 @@ const Box = styled.a`
 
 const ChoiceBoard = ({ data }) => {
 
-    // const min = 0;
     const max = colors.length;
-    const randomColor = () => Math.floor(Math.random() * max);
+    let existingNumbers = [];
+    const randomColor = () => {
+        if (existingNumbers.length === colors.length){
+            existingNumbers = [];
+        }
+        const index = Math.floor(Math.random() * max)
+        if(existingNumbers.includes(index)){
+            return randomColor()
+        }
+        existingNumbers.push(index);
+        return colors[index];
+    };
 
+    // for each iteration 
+    // pick a random color
+    // save the index of the picked color
+    // ensure the next randomColor is not one of the saved indexes
+    
     return(
         <Container>
             {data.map(item => (
-                <Box color={colors[randomColor()]} key={item.id} href={item.link}>{item.id}</Box>
+                <Box color={randomColor()} key={item.id} href={item.link}>{item.id}</Box>
             ))}
         </Container>
     )

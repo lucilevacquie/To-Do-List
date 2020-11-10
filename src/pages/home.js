@@ -28,7 +28,8 @@ const Container = styled.div``;
 const Home = () => {
     return (
         <Container>
-            <Title>Hello Bob!<br/>What kind of Control Freak you want to be today?</Title>
+            <Title>Hello Bob!</Title>
+            <Title>What kind of Control Freak you want to be today?</Title>
             <ChoiceBoard data={data}/>
         </Container>
     )

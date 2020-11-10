@@ -13,6 +13,7 @@ const HeadContainer = styled.div`
 const Title = styled.div`
     text-align: center;
     font-size: 2rem;
+    font-family: "West_england";
 `;
 
 class Header extends Component {

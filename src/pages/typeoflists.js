@@ -6,11 +6,11 @@ import ChoiceBoard from "../components/choice_board";
 
 const data= [
     {
-        id: "Travel List",
+        id: "Travel list",
         link: "/travel"
     },
     {
-        id: "Shopping List",
+        id: "Shopping list",
         link: "/shopping"
     },
 ]
