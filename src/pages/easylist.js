@@ -11,7 +11,7 @@ const EasyList = () => {
     return (
         <Container>
             <Title>Easy List</Title>
-            <List/>
+            <List listKey="easylist"/>
         </Container>
     )
 }

@@ -1,7 +1,11 @@
-import React, {Component} from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { v4 } from 'uuid';
+
 import ListItem from "./list";
 import AddIcon from "../../assets/add-icon.png";
+
+import { putList, getList } from "../../localStorage";
 
 const ListContainer = styled.div`
   display: grid;
@@ -39,72 +43,51 @@ const ItemList = styled.ul`
     line-height: 2rem;
 `;
 
+const List = ({listKey}) => {
 
-class List extends Component {
-    constructor(props){
-      super(props);
-  
-      this.state = {
-        newItem:"",
-        list:[]
-      }
-    }
-  
-    updateInput(key, value){
-      this.setState({
-        [key]: value
-      });
-    }
-  
-    addItem(event){
-      event.preventDefault();
-      const newItem ={
-        id: 1 + Math.random(),
-        value: this.state.newItem.slice()
-      };
-  
-      const list = [...this.state.list];
-  
-      list.push(newItem);
-  
-      this.setState({
-        list,
-        newItem:""
-      });
-    }
-  
-    deleteItem(id){
-      const list = [...this.state.list];
-  
-      const updatedList = list.filter(item => item.id !== id);
-  
-      this.setState({list: updatedList});
+    const [newItem, setNewItem] = useState("");
+
+    //const list = {
+    // id: value,
+    // 1: "Go to the gym",
+    // 2: "Clean the bedroom"
+    // }
+    const [list, setList] = useState(getList(listKey));
+
+    const addItem = e => {
+        e.preventDefault();
+        const id = v4();
+        const item = {value:newItem, quantity:0}
+        setList({
+            ...list, 
+            [id]:item
+        })
+        setNewItem("");
     }
 
-    updateText(event, id){
-      const list = this.state.list;
-
-      list.forEach((item) => {
-        if (item.id === id){
-          item.value = event.target.value;
-        }
-      })
-
-      this.setState({list});
+    const updateText = (id, newValue) => {
+        const updatedItem = list[id];
+        updatedItem.value = newValue;
+        setList({...list, [id]:updatedItem});
     }
 
-    
-  
-    render(){
-      return (
+    const deleteItem = (id) => {
+        const newList = list;
+        delete newList[id];
+        setList({...newList});
+    }
+
+    useEffect(() => {putList(listKey, list)}, [list])
+
+    return (
         <ListContainer>
         
-          <InputWrapper onSubmit={(event) => this.addItem(event)}>
+          <InputWrapper onSubmit={(event) => addItem(event)}>
           <input
             type="text"
             placeholder="Type item here..."
-            value={this.state.newItem}
-            onChange={e => this.updateInput("newItem", e.target.value)}
+            value={newItem}
+            onChange={e => setNewItem(e.target.value)}
           >
           </input>
           <AddButton type="submit"
@@ -114,13 +97,21 @@ class List extends Component {
           </InputWrapper>
           
           <ItemList>
-            {this.state.list.map(item => {
-              return <ListItem key={item.id} onDeleteItem={this.deleteItem.bind(this)} onChangeText={this.updateText.bind(this)} item={item}/>
+            {Object.keys(list).map(id => {
+                const item = list[id]
+                return (
+                    <ListItem 
+                        key={id} 
+                        onDeleteItem={deleteItem} 
+                        onChangeText={updateText}
+                        item={item} 
+                        id={id}
+                    />
+                )
             })}
           </ItemList>
         </ListContainer>
-      );
-    }
+    )
 }
 
 export default List;

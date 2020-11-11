@@ -12,7 +12,7 @@ const ShoppingList = () => {
     return (
         <Container>
             <Title>Shopping List</Title>
-            <List/>
+            <List listKey="shopping"/>
         </Container>
     )
 }
