@@ -29,7 +29,7 @@ const DeleteIcon = styled.img`
     height: 100%;
 `;
 
-const ListItem = ({onDeleteItem, item, onChangeText}) => {
+const ListItem = ({onDeleteItem, item, onChangeText, id}) => {
 
     const [color, setColor] = useState("#000000");
 
@@ -40,14 +40,14 @@ const ListItem = ({onDeleteItem, item, onChangeText}) => {
         <Item>
             {edit ? 
                 <form onSubmit={() => setEdit(!edit)}>
-                    <input value={item.value} onChange={(event) => onChangeText(event, item.id)}/>
+                    <input value={item.value} onChange={(e) => onChangeText(id, e.target.value)}/>
                 </form> :
                 <Value color={color}>{item.value}</Value>
             }
             <Dropdown onSetColor={setColor}/>
             <Edit editText={setEdit}/>
             <Delete
-            onClick={() => onDeleteItem(item.id)}
+            onClick={() => onDeleteItem(id)}
             >
                 <DeleteIcon src={CrossIcon} alt="Delete item"/>
             </Delete>
