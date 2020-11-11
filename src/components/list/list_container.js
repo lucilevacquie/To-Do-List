@@ -38,7 +38,6 @@ const Add = styled.img`
 `;
 
 const ItemList = styled.ul`
-    margin-left: 0.5rem;
     height: 100%;
     line-height: 2rem;
 `;
@@ -57,7 +56,7 @@ const List = ({listKey}) => {
     const addItem = e => {
         e.preventDefault();
         const id = v4();
-        const item = {value:newItem, quantity:0}
+        const item = {value:newItem, quantity:0, checked:false}
         setList({
             ...list, 
             [id]:item
@@ -65,9 +64,9 @@ const List = ({listKey}) => {
         setNewItem("");
     }
 
-    const updateText = (id, newValue) => {
+    const updateItem = (id, property, newValue) => {
         const updatedItem = list[id];
-        updatedItem.value = newValue;
+        updatedItem[property] = newValue;
         setList({...list, [id]:updatedItem});
     }
 
@@ -103,7 +102,7 @@ const List = ({listKey}) => {
                     <ListItem 
                         key={id} 
                         onDeleteItem={deleteItem} 
-                        onChangeText={updateText}
+                        onUpdateItem={updateItem}
                         item={item} 
                         id={id}
                     />
