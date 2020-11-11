@@ -29,8 +29,8 @@ const Checkbox = styled.input`
     position: absolute;
     content: '';
     display: block;
-    top: 0px;
-    left: 4px;
+    top: -3px;
+    left: 3px;
     width: 8px;
     height: 14px;
     border-style: solid;

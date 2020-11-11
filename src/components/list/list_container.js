@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { v4 } from 'uuid';
 
 import ListItem from "./list";
 import AddIcon from "../../assets/add-icon.png";
-
-import { putList, getList } from "../../localStorage";
 
 const ListContainer = styled.div`
   display: grid;
@@ -42,22 +40,15 @@ const ItemList = styled.ul`
     line-height: 2rem;
 `;
 
-const List = ({listKey}) => {
+const List = ({list, updateList}) => {
 
     const [newItem, setNewItem] = useState("");
-
-    //const list = {
-    // id: value,
-    // 1: "Go to the gym",
-    // 2: "Clean the bedroom"
-    // }
-    const [list, setList] = useState(getList(listKey));
 
     const addItem = e => {
         e.preventDefault();
         const id = v4();
         const item = {value:newItem, quantity:0, checked:false}
-        setList({
+        updateList({
             ...list, 
             [id]:item
         })
@@ -67,16 +58,14 @@ const List = ({listKey}) => {
     const updateItem = (id, property, newValue) => {
         const updatedItem = list[id];
         updatedItem[property] = newValue;
-        setList({...list, [id]:updatedItem});
+        updateList({...list, [id]:updatedItem});
     }
 
     const deleteItem = (id) => {
         const newList = list;
         delete newList[id];
-        setList({...newList});
+        updateList({...newList});
     }
-
-    useEffect(() => {putList(listKey, list)}, [list])
 
     return (
         <ListContainer>

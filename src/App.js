@@ -13,6 +13,7 @@ import Shopping from "./pages/shopping";
 
 import Header from "./components/header";
 import {useLoginContext} from "./loginProvider";
+import ListProvider from "./listProvider";
 
 const data = [
   {
@@ -91,14 +92,16 @@ const App = () => {
 
   return (
   <Container>
-    <Router>
-      {isLoggedIn && 
-        <Header/>
-      }
-      <Switch>
-        {data.map(item => getRoute(item))}
-      </Switch>
-    </Router>
+    <ListProvider>   
+      <Router>
+        {isLoggedIn && 
+          <Header/>
+        }
+        <Switch>
+          {data.map(item => getRoute(item))}
+        </Switch>
+      </Router>
+    </ListProvider>
   </Container>
   );
 }
