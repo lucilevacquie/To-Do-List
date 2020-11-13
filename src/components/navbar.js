@@ -6,10 +6,9 @@ import Home from "../pages/home";
 import EasyList from "../pages/easylist";
 import DailyTask from "../pages/dailytask";
 import TypeOfList from "../pages/typeoflists";
-import Calendar from "../pages/calendar";
 import {useLoginContext} from "../loginProvider";
 
-import MenuIcon from "../assets/menu-icon.png";
+import Logo from "../assets/controlfreak-logo.png";
 
 const data = [
     {
@@ -31,12 +30,7 @@ const data = [
         id: "Special occasions",
         path: TypeOfList,
         link: "/specialoccasion"
-    },
-    {
-        id: "Calendar",
-        path: Calendar,
-        link: "/calendar"
-    },
+    }
 ]
 
 const NavbarContainer = styled.div`
@@ -55,7 +49,7 @@ const Button = styled.button`
 
 const Icon = styled.img `
     width: 35px;
-    height: 30px;
+    height: auto;
     cursor: pointer;
 `;
 
@@ -103,7 +97,7 @@ const Navbar = () => {
     return (
         <NavbarContainer>
             <Button onClick={() => setShow(!show)}>
-                <Icon src={MenuIcon} alt=""/>
+                <Icon src={Logo} alt=""/>
             </Button>
             <Sidebar showPanel={show}>
             <CloseButton onClick={() => setShow(!show)}>&times;</CloseButton>

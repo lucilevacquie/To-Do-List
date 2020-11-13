@@ -6,25 +6,24 @@ import ChoiceBoard from "../components/choice_board";
 import Dashboard from "../components/dashboard";
 
 import {useLoginContext} from "../loginProvider";
-import {useListContext} from "../listProvider";
+import {useListContext, colors} from "../listProvider";
 
 const data = [
     {
         id: "Easy list",
-        link: "/easylist"
+        link: "/easylist",
+        color: colors.lightBleu,
     },
     {
         id: "Daily task",
-        link: "/dailytask"
+        link: "/dailytask",
+        color: colors.maroon,
     },
     {
-        id: "Special occasion",
-        link: "/specialoccasion"
-    },
-    {
-        id: "Calendar",
-        link: "/calendar"
-    },
+        id: "Special occasions",
+        link: "/specialoccasion",
+        color: colors.sand,
+    }
 ]
 
 const Container = styled.div``;

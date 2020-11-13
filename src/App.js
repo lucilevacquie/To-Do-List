@@ -7,7 +7,6 @@ import Home from "./pages/home";
 import EasyList from "./pages/easylist";
 import DailyTask from "./pages/dailytask";
 import TypeOfList from "./pages/typeoflists";
-import Calendar from "./pages/calendar";
 import Travel from "./pages/travel";
 import Shopping from "./pages/shopping";
 
@@ -45,12 +44,6 @@ const data = [
     auth: true,
     component: TypeOfList,
     path: "/specialoccasion"
-  },
-  {
-    id: "Calendar",
-    auth: true,
-    component: Calendar,
-    path: "/calendar"
   },
   {
     id: "Travel List",
@@ -92,7 +85,7 @@ const App = () => {
 
   return (
   <Container>
-    <ListProvider>   
+    <ListProvider>
       <Router>
         {isLoggedIn && 
           <Header/>
@@ -100,7 +93,7 @@ const App = () => {
         <Switch>
           {data.map(item => getRoute(item))}
         </Switch>
-      </Router>
+      </Router> 
     </ListProvider>
   </Container>
   );

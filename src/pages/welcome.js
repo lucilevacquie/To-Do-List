@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import Title from "../components/list/list_title";
 import {useLoginContext} from "../loginProvider";
+import Logo from "../assets/controlfreak-logo.png";
 
 const Container = styled.div`
     display: flex;
@@ -12,19 +12,44 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-    padding-top: 3rem;
+    display: grid;
+    grid-template-rows: repeat(5, 100px);
+    padding-top: 1.5rem;
+    margin: 1.5rem;
+`;
+
+const Title = styled.div`
+    font-family: "West_england";
+    font-size: 26px;
+    text-align: center;
+    align-self: center;
+`;
+
+const LogoImg = styled.img`
+    justify-self:center;
+    align-self: center;
+    width: 100px;
 `;
 
 const Description = styled.p`
     text-align: center;
-`;
-
-const Name = styled.p`
-    text-align: center;
+    align-self: center;
+    font-size: 17px;
+    line-height: 1.8rem;
 `;
 
 const Form = styled.form`
     text-align: center;
+    align-self: center;
+    input{
+        background-color: transparent;
+        border: none;
+        border-bottom: black solid 1px;
+        font-size: 16px;
+    }
+    button{
+        margin-left: 10px;
+    }
 `;
 
 
@@ -46,16 +71,18 @@ const Welcome = () => {
     return (
         <Container>
             <Content>
-                <Title>Welcome to Control Freak!</Title>
+                <Title>Welcome to <br/> Control Freak!</Title>
                 <Description>This app is going to help you showing your true nature.</Description>
-                <Name>If you don't want us to call you Freak, <br/> enter your name here</Name>
+                <Description>If you don't want us to call you Freak, <br/> enter your name here</Description>
                 <Form onSubmit={onSubmitForm}>
                     <input
                     name = "username"
                     type="text" 
-                    placeholder="Your name"/>
+                    placeholder="Your name"
+                    required/>
                     <button type="submit">Let's go!</button>
                 </Form>
+                <LogoImg src={Logo}></LogoImg>
             </Content>
         </Container>
     )
