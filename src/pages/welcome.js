@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import {useLoginContext} from "../loginProvider";
 import StyledInput from "../components/input";
-import Logo from "../assets/controlfreak-logo.png";
+import Logo from "../assets/controlfreak-logo-white.png";
 import {colors} from "../listProvider";
 
 const Container = styled.div`
@@ -79,6 +79,8 @@ const Welcome = () => {
                 <Description>If you don't want us to call you Freak, <br/> enter your name here</Description>
                 <Form onSubmit={onSubmitForm}>
                     <StyledInput
+                    width = "170px"
+                    color = "white"
                     name = "username"
                     type = "text" 
                     placeholder = "Your name"

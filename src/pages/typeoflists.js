@@ -4,18 +4,18 @@ import styled from "styled-components";
 import Title from "../components/list/list_title";
 import ChoiceBoard from "../components/choice_board";
 
-import { colors } from "../colors";
-
 const data= [
     {
         id: "Travel list",
-        link: "/travel",
-        color: colors.sand
+        link: "/travel"
     },
     {
         id: "Shopping list",
-        link: "/shopping",
-        color: colors.red
+        link: "/shopping"
+    },
+    {
+        id: "Raclette shopping list",
+        link: "/raclette"
     },
 ]
 

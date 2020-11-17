@@ -2,22 +2,16 @@ import React from "react"
 import styled from "styled-components";
 
 import { useListContext } from "../listProvider";
+import Box from "./box";
 
 const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    margin-top: 2rem;
-`;
-
-const Box = styled.a`
-    margin: 1rem;
-    text-decoration: none;
-    color: black;
-    box-sizing: border-box;
-    border: 2px solid;
-    border-radius: 15px;
-    padding: 1rem;
-    background-color: ${(props) => props.color}
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    justify-content: center;
+    margin: 1.5rem 1rem;
+    font-family: "Roboto", sans-serif;
 `;
 
 const Title = styled.div`

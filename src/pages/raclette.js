@@ -6,18 +6,20 @@ import List from "../components/list/list_container";
 
 import {useListContext} from "../listProvider";
 
+
 const Container = styled.div``;
 
-const TravelList = () => {
 
-    const {travelList, setTravelList} = useListContext()
+const RacletteList = () => {
+
+    const {racletteList, setRacletteList} = useListContext()
 
     return (
         <Container>
-            <Title>Travel List</Title>
-            <List list={travelList} updateList={setTravelList}/>
+            <Title>Raclette shopping list</Title>
+            <List list={racletteList} updateList={setRacletteList}/>
         </Container>
     )
 }
 
-export default TravelList;
+export default RacletteList;

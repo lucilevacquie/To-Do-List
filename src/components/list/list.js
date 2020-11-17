@@ -8,10 +8,10 @@ import CrossIcon from "../../assets/delete-icon.png";
 
 
 const Item = styled.li`
-    display: grid;
-    grid-template-columns: 20px 185px 10% 10% 10%;
-    width: 100%;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 20px 200px 10% 10% 10%;
+  width: 100%;
+  align-items: center;
 `;
 
 const Checkbox = styled.input`

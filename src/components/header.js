@@ -20,14 +20,15 @@ const HeadContent = styled.div`
 `;
 
 const Img = styled.img`
-    padding-left: 2.5rem;
+    padding-left: 2rem;
     width: 35px;
 `;
 
 const Title = styled.div`
     padding-top: 0.5rem;
     font-size: 16px;
-    font-family: "West_england";
+    font-family: "Pixeboy";
+    color: white;
 `;
 
 class Header extends Component {

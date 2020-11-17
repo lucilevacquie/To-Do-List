@@ -6,27 +6,27 @@ import ChoiceBoard from "../components/choice_board";
 import Dashboard from "../components/dashboard";
 
 import {useLoginContext} from "../loginProvider";
-import {useListContext, colors} from "../listProvider";
+import {useListContext} from "../listProvider";
 
 const data = [
     {
         id: "Easy list",
         link: "/easylist",
-        color: colors.lightBleu,
     },
     {
         id: "Daily task",
         link: "/dailytask",
-        color: colors.maroon,
     },
     {
         id: "Special occasions",
         link: "/specialoccasion",
-        color: colors.sand,
     }
+
 ]
 
-const Container = styled.div``;
+const Container = styled.div`
+    font-family: "Roboto", sans-serif;
+`;
 
 const CurrentDate = styled.div`
     text-align: center;

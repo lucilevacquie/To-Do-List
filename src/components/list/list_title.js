@@ -7,6 +7,7 @@ const ListTitle = styled.div`
   text-align: center;
   margin-top: 1rem;
   font-size: 24px;
+  font-family: "Roboto", sans-serif;
 `;
 
 const Title = (props) => {

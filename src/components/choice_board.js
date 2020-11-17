@@ -1,23 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 2rem;
-`;
+import Box from "./box";
 
-const Box = styled.a`
-    margin: 1rem;
-    text-decoration: none;
-    color: black;
-    box-sizing: border-box;
-    border: 2px solid;
-    border-radius: 15px;
-    padding: 1rem;
-    background-color: ${(props) => props.color};
-    font-size: 20px;
+const Container = styled.div`    
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    justify-content: center;
+    margin: 1.5rem 1rem;
+    font-family: "Roboto", sans-serif;
 `;
 
 const ChoiceBoard = ({ data }) => {

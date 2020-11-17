@@ -4,40 +4,38 @@ import { v4 } from 'uuid';
 
 import ListItem from "./list";
 import AddIcon from "../../assets/add-icon.png";
+import StyledInput from "../input";
 
 const ListContainer = styled.div`
   display: grid;
-  grid-template-rows: 50px 50px 1fr;
+  grid-template-rows: 80px 1fr;
+  margin: 0 25px;
+  font-family: "Roboto", sans-serif;
 `;
 
 const InputWrapper = styled.form`
-  text-align: center;
-  padding: 1rem 0;  
+  margin: auto;
   display: grid;
   grid-template-columns: 80% 20%;
-  input {
-    border: none;
-    border-bottom: solid grey 1px;
-    background-color: transparent;
-    margin-left: 3rem;
-  }
 `;
 
 const AddButton = styled.button`
-  width: 25px;
-  height: 25px;
+  margin-left: 1rem;
+  width: 50px;
+  height: 48px;
   background-color: transparent;
   border-color: transparent;
 `;
 
 const Add = styled.img`
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 `;
 
 const ItemList = styled.ul`
     height: 100%;
     line-height: 2rem;
+    padding-left: 0;
 `;
 
 const List = ({list, updateList}) => {
@@ -67,21 +65,26 @@ const List = ({list, updateList}) => {
         updateList({...newList});
     }
 
+    const onChange = (e) => {
+      setNewItem(e.target.value)
+    }
+
     return (
         <ListContainer>
         
           <InputWrapper onSubmit={(event) => addItem(event)}>
-          <input
-            type="text"
-            placeholder="Type item here..."
-            value={newItem}
-            onChange={e => setNewItem(e.target.value)}
-          >
-          </input>
-          <AddButton type="submit"
-          >
-            <Add src={AddIcon} alt="Add item"/>
-          </AddButton>
+            <StyledInput
+              width = "240px"
+              color = "black"
+              name = "item"
+              type = "text"
+              placeholder = "Type your task here..."
+              value = {newItem}
+              onChange = {onChange}>
+            </StyledInput>
+            <AddButton type="submit">
+              <Add src={AddIcon} alt="Add item"/>
+            </AddButton>
           </InputWrapper>
           
           <ItemList>

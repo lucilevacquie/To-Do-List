@@ -10,14 +10,11 @@ export const Lists = {
     Easy : "easylist",
     Shopping : "shoppinglist",
     Travel : "travellist",
+    Raclette : "raclettelist",
 }
 
 export const colors = {
     grey: "#262626",
-    maroon: "#AB7657",
-    red: "#C93738",
-    lightBleu: "#C2D5DB",
-    sand: "#DCBCA5",
 }
 
 const ListProvider = ({ children }) => {
@@ -34,39 +31,44 @@ const ListProvider = ({ children }) => {
     const [travelList, setTravelList] = useState(getList(Lists.Travel))
     useEffect(() => {putList(Lists.Travel, travelList)}, [travelList])
 
+    const [racletteList, setRacletteList] = useState(getList(Lists.Raclette))
+    useEffect(() => {putList(Lists.Raclette, racletteList)}, [racletteList])
+
 
     const isListCreated = () => {
         return Object.keys(easyList).length > 0
         || Object.keys(dailyTaskList).length > 0
         || Object.keys(shoppingList).length > 0
         || Object.keys(travelList).length > 0
+        || Object.keys(racletteList).length > 0
     }
 
     const routes = [
         {
             id: "Easy list",
             link: "/easylist",
-            noOfItems: Object.keys(easyList).length,
-            color: colors.lightBleu
+            noOfItems: Object.keys(easyList).length
         },
         {
             id: "Daily task",
             link: "/dailytask",
-            noOfItems: Object.keys(dailyTaskList).length,
-            color: colors.maroon
+            noOfItems: Object.keys(dailyTaskList).length
         },
         {
             id: "Shopping list",
             link: "/shopping",
-            noOfItems: Object.keys(shoppingList).length,
-            color: colors.sand
+            noOfItems: Object.keys(shoppingList).length
         },
         {
             id: "Travel list",
             link: "/travel",
-            noOfItems: Object.keys(travelList).length,
-            color: colors.red
+            noOfItems: Object.keys(travelList).length
         },
+        {
+            id: "Raclette list",
+            link: "/raclette",
+            noOfItems: Object.keys(racletteList).length
+        }
     ]
 
     const state = {
@@ -78,6 +80,8 @@ const ListProvider = ({ children }) => {
         setShoppingList,
         travelList, 
         setTravelList,
+        racletteList,
+        setRacletteList,
         routes,
         isListCreated
     }

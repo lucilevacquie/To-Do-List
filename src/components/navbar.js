@@ -7,6 +7,7 @@ import EasyList from "../pages/easylist";
 import DailyTask from "../pages/dailytask";
 import TypeOfList from "../pages/typeoflists";
 import {useLoginContext} from "../loginProvider";
+import {colors} from "../listProvider";
 
 import Menu from "../assets/menu-icon.png";
 
@@ -36,6 +37,7 @@ const data = [
 const NavbarContainer = styled.div`
     display: grid;
     grid-template-rows: 20% 80%;
+    font-family: "Roboto", sans-serif;
 `;
 
 const Button = styled.button`
@@ -60,7 +62,7 @@ const Sidebar = styled.div`
     z-index: 1;
     top: 0;
     left : 0;
-    background-color: #a3bed3;
+    background-color: ${colors.grey};
     overflow-x: hidden;
     padding-top: 20px;
     transition: 0.5s;
@@ -73,6 +75,7 @@ const CloseButton = styled.a`
     font-size: 36px;
     margin-left: 40px;
     cursor: pointer;
+    color: white;
 `;
 
 const Links = styled.ul`
@@ -80,7 +83,7 @@ const Links = styled.ul`
     padding-left: 0;
     a {
         text-decoration: none;
-        color: #835a3c;
+        color: white;
         display: block;
         margin: 1.5rem 0;
         font-size: 20px;
