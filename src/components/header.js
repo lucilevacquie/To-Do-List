@@ -1,18 +1,32 @@
 import React, {Component} from "react";
 import styled from "styled-components";
+
+import Logo from "../assets/controlfreak-logo.png";
 import Navbar from "./navbar";
+import {colors} from "../listProvider";
 
 const HeadContainer = styled.div`
     display: grid;
     grid-template-columns: 22% 78%;
     align-items: center;
-    padding: 1rem 0;
-    background-color: #a3bed3;
+    padding: 0.5rem 0;
+    background-color: ${colors.grey};
+`;
+
+const HeadContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-left: 4rem;
+`;
+
+const Img = styled.img`
+    padding-left: 2.5rem;
+    width: 35px;
 `;
 
 const Title = styled.div`
-    padding-left: 1rem;
-    font-size: 1.8rem;
+    padding-top: 0.5rem;
+    font-size: 16px;
     font-family: "West_england";
 `;
 
@@ -22,7 +36,10 @@ class Header extends Component {
         return (
             <HeadContainer>
                 <Navbar/>
-                <Title>Control Freak</Title>
+                <HeadContent>
+                    <Img src={Logo}></Img>
+                    <Title>Control Freak</Title>
+                </HeadContent>
             </HeadContainer>
         )
     }

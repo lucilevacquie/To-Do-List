@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {createGlobalStyle} from "styled-components";
 import "./style.scss";
+import {createGlobalStyle} from "styled-components";
 import LoginProvider from "./loginProvider";
 
 const GlobalStyle = createGlobalStyle `

@@ -2,53 +2,55 @@ import React from "react";
 import styled from "styled-components";
 
 import {useLoginContext} from "../loginProvider";
+import StyledInput from "../components/input";
 import Logo from "../assets/controlfreak-logo.png";
+import {colors} from "../listProvider";
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-image: linear-gradient(#6eaae4, #d9b9a2);
+    background-color: ${colors.grey};
 `;
 
 const Content = styled.div`
     display: grid;
-    grid-template-rows: repeat(5, 100px);
-    padding-top: 1.5rem;
+    grid-template-rows: 170px auto;
     margin: 1.5rem;
-`;
-
-const Title = styled.div`
-    font-family: "West_england";
-    font-size: 26px;
-    text-align: center;
-    align-self: center;
+    color: white;
 `;
 
 const LogoImg = styled.img`
     justify-self:center;
     align-self: center;
-    width: 100px;
+    width: 150px;
 `;
 
-const Description = styled.p`
+const Title = styled.div`
+    font-family: "Pixeboy";
+    font-size: 34px;
+    text-align: center;
+    align-self: center;
+    padding-top: 1rem;
+`;
+
+const Description = styled.div`
     text-align: center;
     align-self: center;
     font-size: 17px;
     line-height: 1.8rem;
+    font-family: "Roboto", sans-serif;
+    padding-top: 1rem;
 `;
 
 const Form = styled.form`
     text-align: center;
     align-self: center;
-    input{
-        background-color: transparent;
-        border: none;
-        border-bottom: black solid 1px;
-        font-size: 16px;
-    }
+    padding-top: 1rem;
+    font-family: "Roboto", sans-serif;
     button{
-        margin-left: 10px;
+        padding: 8px;
+        background-color:${colors.red};
     }
 `;
 
@@ -71,18 +73,19 @@ const Welcome = () => {
     return (
         <Container>
             <Content>
+                <LogoImg src={Logo}></LogoImg>
                 <Title>Welcome to <br/> Control Freak!</Title>
-                <Description>This app is going to help you showing your true nature.</Description>
+                <Description>This TO DO LIST app is going to help you showing your true nature.</Description>
                 <Description>If you don't want us to call you Freak, <br/> enter your name here</Description>
                 <Form onSubmit={onSubmitForm}>
-                    <input
+                    <StyledInput
                     name = "username"
-                    type="text" 
-                    placeholder="Your name"
+                    type = "text" 
+                    placeholder = "Your name"
                     required/>
+                    <br/>
                     <button type="submit">Let's go!</button>
                 </Form>
-                <LogoImg src={Logo}></LogoImg>
             </Content>
         </Container>
     )

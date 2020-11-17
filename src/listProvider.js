@@ -13,6 +13,7 @@ export const Lists = {
 }
 
 export const colors = {
+    grey: "#262626",
     maroon: "#AB7657",
     red: "#C93738",
     lightBleu: "#C2D5DB",

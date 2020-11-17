@@ -8,7 +8,7 @@ import DailyTask from "../pages/dailytask";
 import TypeOfList from "../pages/typeoflists";
 import {useLoginContext} from "../loginProvider";
 
-import Logo from "../assets/controlfreak-logo.png";
+import Menu from "../assets/menu-icon.png";
 
 const data = [
     {
@@ -97,7 +97,7 @@ const Navbar = () => {
     return (
         <NavbarContainer>
             <Button onClick={() => setShow(!show)}>
-                <Icon src={Logo} alt=""/>
+                <Icon src={Menu} alt=""/>
             </Button>
             <Sidebar showPanel={show}>
             <CloseButton onClick={() => setShow(!show)}>&times;</CloseButton>
