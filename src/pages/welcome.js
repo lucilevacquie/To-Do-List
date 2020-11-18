@@ -16,8 +16,9 @@ const Container = styled.div`
 const Content = styled.div`
     display: grid;
     grid-template-rows: 170px auto;
-    margin: 1.5rem;
+    padding: 1.5rem;
     color: white;
+    background-color: ${colors.grey};
 `;
 
 const LogoImg = styled.img`
