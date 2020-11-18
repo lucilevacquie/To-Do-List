@@ -55,6 +55,15 @@ const Icon = styled.img `
     cursor: pointer;
 `;
 
+const SidebarContainer = styled.div`
+    width: ${(props) => (props.showPanel ? "100%" : "0")};
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: 0.5s;
+`;
+
 const Sidebar = styled.div`
     width: ${(props) => (props.showPanel ? "250px" : "0")};
     height: 100%;
@@ -97,26 +106,30 @@ const Navbar = () => {
 
     const {logout} = useLoginContext()
 
+
+
     return (
         <NavbarContainer>
             <Button onClick={() => setShow(!show)}>
                 <Icon src={Menu} alt=""/>
             </Button>
-            <Sidebar showPanel={show}>
-            <CloseButton onClick={() => setShow(!show)}>&times;</CloseButton>
-            <div>
 
-            <Links>
-                {data.map(item => (
-                    <NavLink key={item.id} to={item.link} onClick={() => setShow(!show)}>
-                        {item.id}
-                    </NavLink>
-                ))}
-                <NavLink to="/" onClick={() => logout()}>Logout</NavLink>
-            </Links>
-                
-            </div>
-        </Sidebar>
+            <SidebarContainer showPanel={show} onClick={() => setShow(false)}>
+                <Sidebar showPanel={show} onClick={(e) => e.stopPropagation()}>
+                    <CloseButton onClick={() => setShow(!show)}>&times;</CloseButton>
+                    <div>
+                        <Links>
+                            {data.map(item => (
+                                <NavLink key={item.id} to={item.link} onClick={() => setShow(!show)}>
+                                    {item.id}
+                                </NavLink>
+                            ))}
+                            <NavLink to="/" onClick={() => logout()}>Logout</NavLink>
+                        </Links>
+                    </div>
+                </Sidebar>
+            </SidebarContainer>
+            
         </NavbarContainer>
     )
 }
