@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 const Container = styled.div`
     text-align: center;
+    display: flex;
+    align-items: center;
 `;
 
 const MinusOrAdd = styled.button`
@@ -12,7 +14,9 @@ const MinusOrAdd = styled.button`
     border-radius: 50%;
 `;
 
-const Quantity = styled.div``;
+const Quantity = styled.div`
+    padding: 0 4px;
+`;
 
 
 const Counter = () => {
@@ -25,9 +29,9 @@ const Counter = () => {
 
     return (
         <Container>
-            <MinusOrAdd onClick={() => ChangeCount(1)}>+</MinusOrAdd>
-            <Quantity>{count}</Quantity>
             <MinusOrAdd onClick={() => ChangeCount(-1)}>-</MinusOrAdd>
+            <Quantity>{count}</Quantity>
+            <MinusOrAdd onClick={() => ChangeCount(1)}>+</MinusOrAdd>
         </Container>
     )
 }

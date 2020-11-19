@@ -5,6 +5,7 @@ import { v4 } from 'uuid';
 import ListItem from "./list";
 import AddIcon from "../../assets/add-icon.png";
 import StyledInput from "../input";
+import ClearAll from "./clearall";
 
 const ListContainer = styled.div`
   display: grid;
@@ -20,6 +21,11 @@ const InputWrapper = styled.form`
 `;
 
 const AddButton = styled.button`
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: end;
+  align-items: center;
   margin-left: 1rem;
   width: 50px;
   height: 48px;
@@ -59,10 +65,8 @@ const List = ({list, updateList}) => {
         updateList({...list, [id]:updatedItem});
     }
 
-    const deleteItem = (id) => {
-        const newList = list;
-        delete newList[id];
-        updateList({...newList});
+    const deleteList = () => {
+        updateList({});
     }
 
     const onChange = (e) => {
@@ -86,14 +90,15 @@ const List = ({list, updateList}) => {
               <Add src={AddIcon} alt="Add item"/>
             </AddButton>
           </InputWrapper>
+
+          <ClearAll/>
           
-          <ItemList>
+          <ItemList onDeleteList={deleteList} >
             {Object.keys(list).map(id => {
                 const item = list[id]
                 return (
                     <ListItem 
-                        key={id} 
-                        onDeleteItem={deleteItem} 
+                        key={id}
                         onUpdateItem={updateItem}
                         item={item} 
                         id={id}

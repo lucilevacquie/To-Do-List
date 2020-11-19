@@ -3,13 +3,17 @@ import styled from "styled-components";
 
 import DeleteImg from "../../assets/delete-icon.png";
 
-const Container = styled.div``;
+const Container = styled.div`
+    display: flex;
+    justify-content: end;
+`;
 
 const Text = styled.div``;
 
 const Delete = styled.div`
-    width: 20px;
-    height: 20px;
+    margin-left: 5px;
+    width: 15px;
+    height: 15px;
 `;
 
 const DeleteIcon = styled.img`
@@ -17,13 +21,13 @@ const DeleteIcon = styled.img`
     height: 100%;
 `;
 
-const Clear = ({onDeleteItem}) => {
+const Clear = ({onDeleteList}) => {
     return(
         <Container>
             <Text>Clear all</Text>
             <Delete
-            onClick={() => onDeleteItem(id)}>
-                <DeleteIcon src={DeleteImg} alt="Delete item"/>
+            onClick={() => onDeleteList()}>
+                <DeleteIcon src={DeleteImg} alt="Delete list"/>
             </Delete>
         </Container>
     )

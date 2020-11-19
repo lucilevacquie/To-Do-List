@@ -9,15 +9,15 @@ import Counter from "./counter";
 import {useListContext} from "../../listProvider";
 
 
-
 const Item = styled.li`
   display: grid;
-  grid-template-columns: 20px 200px 10% 10% 10%;
+  grid-template-columns: 5% 58% 21% 10% 10%;
   width: 100%;
   align-items: center;
 `;
 
 const Checkbox = styled.input`
+  margin: 0;
   position: relative;
   width: 1.5em;
   height: 1.5em;
