@@ -9,6 +9,7 @@ import DailyTask from "./pages/dailytask";
 import TypeOfList from "./pages/typeoflists";
 import Travel from "./pages/travel";
 import Shopping from "./pages/shopping";
+import ChoiceBoardHome from "./pages/choiceboard-home";
 
 import Header from "./components/header";
 import {useLoginContext} from "./loginProvider";
@@ -56,6 +57,12 @@ const data = [
     auth: true,
     component: Shopping,
     path: "/shopping"
+  },
+  {
+    id: "Choice Board Home",
+    auth: true,
+    component: ChoiceBoardHome,
+    path: "/newlist"
   },
 ]
 

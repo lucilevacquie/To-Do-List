@@ -30,13 +30,16 @@ const Dashboard = () => {
             {routes.map(item => (
                 <>
                 {item.noOfItems > 0 &&
-                    <Box key={item.id} href={item.link} color={item.color}>
+                    <Box key={item.id} href={item.link}>
                         <Title>{item.id}</Title>
                         <NbTasks>Tasks: {item.noOfItems}</NbTasks>
                     </Box>
                 }
                 </>
             ))}
+            <Box href="/newlist">
+                <Title>Add a new list</Title>
+            </Box>
         </Container>
     )
 }
