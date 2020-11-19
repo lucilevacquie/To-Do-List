@@ -3,7 +3,10 @@ import styled from "styled-components";
 
 import Dropdown from "./dropdown";
 import Edit from "./edit";
-import CrossIcon from "../../assets/delete-icon.png";
+// import CrossIcon from "../../assets/delete-icon.png";
+import Counter from "./counter";
+
+import {useListContext} from "../../listProvider";
 
 
 
@@ -61,21 +64,14 @@ const Value = styled.div`
     text-decoration: ${(props) => props.checked ? "line-through" : "none"};
 `;
 
-const Delete = styled.div`
-    width: 20px;
-    height: 20px;
-`;
 
-const DeleteIcon = styled.img`
-    width: 100%;
-    height: 100%;
-`;
-
-const ListItem = ({onDeleteItem, item, onUpdateItem, id}) => {
+const ListItem = ({item, onUpdateItem, id}) => {
 
     const [color, setColor] = useState("#000000");
 
     const [edit, setEdit] = useState(false);
+
+    const {shoppingList} = useListContext();
 
 
     return (
@@ -87,13 +83,11 @@ const ListItem = ({onDeleteItem, item, onUpdateItem, id}) => {
                 </Text> :
                 <Value color={color} checked={item.checked}>{item.value}</Value>
             }
+            {shoppingList && 
+              <Counter/>
+            }
             <Dropdown onSetColor={setColor}/>
             <Edit editText={setEdit}/>
-            <Delete
-            onClick={() => onDeleteItem(id)}
-            >
-                <DeleteIcon src={CrossIcon} alt="Delete item"/>
-            </Delete>
         </Item>
     )
 }
