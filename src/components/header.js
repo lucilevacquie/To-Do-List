@@ -37,7 +37,9 @@ class Header extends Component {
             <HeadContainer>
                 <Navbar/>
                 <HeadContent>
-                    <div><Img src={Logo}></Img></div>
+                    <a href="/">
+                        <Img src={Logo}></Img>
+                    </a>
                     
                     <Title>Control Freak</Title>
                 </HeadContent>

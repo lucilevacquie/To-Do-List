@@ -59,18 +59,18 @@ const Icon = styled.img `
 
 const SidebarContainer = styled.div`
     width: ${(props) => (props.showPanel ? "100%" : "0")};
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     transition: 0.5s;
+    z-index: 1;
 `;
 
 const Sidebar = styled.div`
     width: ${(props) => (props.showPanel ? "250px" : "0")};
     height: 100%;
     position: fixed;
-    z-index: 1;
     top: 0;
     left : 0;
     background-color: ${colors.grey};

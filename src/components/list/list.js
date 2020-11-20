@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import Dropdown from "./dropdown";
 import Edit from "./edit";
-// import CrossIcon from "../../assets/delete-icon.png";
 import Counter from "./counter";
 
 import {useListContext} from "../../listProvider";
@@ -73,7 +72,6 @@ const ListItem = ({item, onUpdateItem, id}) => {
 
     const {shoppingList} = useListContext();
 
-
     return (
         <Item>
             <Checkbox type="checkbox" checked={item.checked} onChange={e => onUpdateItem(id, "checked", e.target.checked)}/>
@@ -87,7 +85,7 @@ const ListItem = ({item, onUpdateItem, id}) => {
               <Counter/>
             }
             <Dropdown onSetColor={setColor}/>
-            <Edit editText={setEdit}/>
+            <Edit editText={() => setEdit(!edit)}/>
         </Item>
     )
 }

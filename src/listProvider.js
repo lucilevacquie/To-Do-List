@@ -28,7 +28,17 @@ const ListProvider = ({ children }) => {
     const [shoppingList, setShoppingList] = useState(getList(Lists.Shopping))
     useEffect(() => {putList(Lists.Shopping, shoppingList)}, [shoppingList])
 
-    const [travelList, setTravelList] = useState(getList(Lists.Travel))
+    const [travelList, setTravelList] = useState({
+        "Passport":{
+            value: "Passport",
+            checked:false
+        },
+        "Charger":{
+            value: "Phone charger",
+            checked:false
+        },
+        ...getList(Lists.Travel),
+    })
     useEffect(() => {putList(Lists.Travel, travelList)}, [travelList])
 
     const [racletteList, setRacletteList] = useState(getList(Lists.Raclette))
@@ -39,35 +49,42 @@ const ListProvider = ({ children }) => {
         return Object.keys(easyList).length > 0
         || Object.keys(dailyTaskList).length > 0
         || Object.keys(shoppingList).length > 0
-        || Object.keys(travelList).length > 0
+        || Object.keys(travelList).length > 2
         || Object.keys(racletteList).length > 0
     }
+
+    const noOfDone = (list) => Object.keys(list).filter((id) => list[id].checked).length
 
     const routes = [
         {
             id: "Easy list",
             link: "/easylist",
-            noOfItems: Object.keys(easyList).length
+            noOfItems: Object.keys(easyList).length,
+            noOfDone: noOfDone(easyList)
         },
         {
             id: "Daily task",
             link: "/dailytask",
-            noOfItems: Object.keys(dailyTaskList).length
+            noOfItems: Object.keys(dailyTaskList).length,
+            noOfDone: noOfDone(dailyTaskList)
         },
         {
             id: "Shopping list",
             link: "/shopping",
-            noOfItems: Object.keys(shoppingList).length
+            noOfItems: Object.keys(shoppingList).length,
+            noOfDone: noOfDone(shoppingList)
         },
         {
             id: "Travel list",
             link: "/travel",
-            noOfItems: Object.keys(travelList).length
+            noOfItems: Object.keys(travelList).length,
+            noOfDone: noOfDone(travelList)
         },
         {
             id: "Raclette list",
             link: "/raclette",
-            noOfItems: Object.keys(racletteList).length
+            noOfItems: Object.keys(racletteList).length,
+            noOfDone: noOfDone(racletteList)
         }
     ]
 

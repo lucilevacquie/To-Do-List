@@ -19,7 +19,13 @@ const Title = styled.div`
     padding-bottom: 0.5rem;
 `;
 
-const NbTasks = styled.div``;
+const NbTasks = styled.div`
+    font-size: 16px;
+`;
+
+const NbCheck = styled.div`
+    font-size: 16px;
+`;
 
 const Dashboard = () => {
 
@@ -33,6 +39,7 @@ const Dashboard = () => {
                     <Box key={item.id} href={item.link}>
                         <Title>{item.id}</Title>
                         <NbTasks>Tasks: {item.noOfItems}</NbTasks>
+                        <NbCheck>Done: {item.noOfDone}</NbCheck>
                     </Box>
                 }
                 </>
