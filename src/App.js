@@ -60,10 +60,11 @@ const data = [
 ]
 
 const Container = styled.div`
-  margin: 0;
+  margin: auto;
   padding: 0;
   height: 100%;
   width: 100%;
+  max-width: 500px;
 `
 
 const App = () => {
