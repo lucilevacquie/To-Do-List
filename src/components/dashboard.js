@@ -38,7 +38,7 @@ const Dashboard = () => {
                 {item.noOfItems > 0 &&
                     <Box key={item.id} href={item.link}>
                         <Title>{item.id}</Title>
-                        <NbTasks>Tasks: {item.noOfItems}</NbTasks>
+                        <NbTasks>Item(s): {item.noOfItems}</NbTasks>
                         <NbCheck>Done: {item.noOfDone}</NbCheck>
                     </Box>
                 }
