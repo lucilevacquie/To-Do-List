@@ -60,13 +60,13 @@ const List = ({list, updateList}) => {
     }
 
     const updateItem = (id, property, newValue) => {
-        const updatedItem = list[id];
-        updatedItem[property] = newValue;
-        updateList({...list, [id]:updatedItem});
+      const updatedItem = list[id];
+      updatedItem[property] = newValue;
+      updateList({...list, [id]:updatedItem});
     }
 
     const deleteList = () => {
-        updateList({});
+      return updateList({});
     }
 
     const onChange = (e) => {
@@ -91,9 +91,9 @@ const List = ({list, updateList}) => {
             </AddButton>
           </InputWrapper>
 
-          <ClearAll/>
+          <ClearAll onDeleteList={deleteList}/>
           
-          <ItemList onDeleteList={deleteList} >
+          <ItemList>
             {Object.keys(list).map(id => {
                 const item = list[id]
                 return (

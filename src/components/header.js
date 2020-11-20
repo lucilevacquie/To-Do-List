@@ -6,8 +6,7 @@ import Navbar from "./navbar";
 import {colors} from "../listProvider";
 
 const HeadContainer = styled.div`
-    display: grid;
-    grid-template-columns: 22% 78%;
+    display: flex;
     align-items: center;
     padding: 0.5rem 0;
     background-color: ${colors.grey};
@@ -16,11 +15,11 @@ const HeadContainer = styled.div`
 const HeadContent = styled.div`
     display: flex;
     flex-direction: column;
-    padding-left: 4rem;
+    text-align: center;
+    width: 100%;
 `;
 
 const Img = styled.img`
-    padding-left: 2rem;
     width: 35px;
 `;
 
@@ -38,7 +37,8 @@ class Header extends Component {
             <HeadContainer>
                 <Navbar/>
                 <HeadContent>
-                    <Img src={Logo}></Img>
+                    <div><Img src={Logo}></Img></div>
+                    
                     <Title>Control Freak</Title>
                 </HeadContent>
             </HeadContainer>

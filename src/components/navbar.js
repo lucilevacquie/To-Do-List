@@ -38,10 +38,12 @@ const NavbarContainer = styled.div`
     display: grid;
     grid-template-rows: 20% 80%;
     font-family: "Roboto", sans-serif;
+    position: absolute;
 `;
 
 const Button = styled.button`
     background: none;
+    margin-left: 15px;
     box-sizing: border-box;
     border: none;
         :focus{
@@ -90,6 +92,7 @@ const CloseButton = styled.a`
 const Links = styled.ul`
     text-align: center;
     padding-left: 0;
+    white-space: nowrap;
     a {
         text-decoration: none;
         color: white;

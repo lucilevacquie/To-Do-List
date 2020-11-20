@@ -11,6 +11,7 @@ const Container = styled.div`
     flex-direction: column;
     height: 100vh;
     background-color: ${colors.grey};
+    justify-content: center;
 `;
 
 const Content = styled.div`

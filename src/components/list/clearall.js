@@ -23,10 +23,9 @@ const DeleteIcon = styled.img`
 
 const Clear = ({onDeleteList}) => {
     return(
-        <Container>
+        <Container onClick={onDeleteList}>
             <Text>Clear all</Text>
-            <Delete
-            onClick={() => onDeleteList()}>
+            <Delete>
                 <DeleteIcon src={DeleteImg} alt="Delete list"/>
             </Delete>
         </Container>

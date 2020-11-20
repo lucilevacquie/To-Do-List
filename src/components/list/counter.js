@@ -24,6 +24,9 @@ const Counter = () => {
     const [count, setCount] = useState(1)
 
     const ChangeCount = (inc) => {
+        if (inc === -1 && count === 1){
+            return 
+        }
         setCount(count + inc);
     }
 
