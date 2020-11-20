@@ -10,14 +10,16 @@ import ClearAll from "./clearall";
 const ListContainer = styled.div`
   display: grid;
   grid-template-rows:${(props) => props.showExamples ? "80px 50px 1fr 25px" : "80px 1fr 25px"} ;
-  margin: 0 25px;
+  width: 320px;
+  margin: auto;
   font-family: "Roboto", sans-serif;
 `;
 
 const InputWrapper = styled.form`
   margin: auto;
+  width: inherit;
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 86% 14%;
 `;
 
 const AddButton = styled.button`
@@ -26,7 +28,6 @@ const AddButton = styled.button`
   margin: 0;
   justify-content: end;
   align-items: center;
-  margin-left: 1rem;
   width: 50px;
   height: 48px;
   background-color: transparent;
@@ -42,6 +43,7 @@ const ItemList = styled.ul`
   height: 100%;
   line-height: 2rem;
   padding-left: 0;
+  width: inherit;
 `;
 
 const List = ({list, updateList, showExamples, showCounter}) => {

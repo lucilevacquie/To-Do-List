@@ -20,11 +20,11 @@ const data = [
 
     {
         id: "Travel list",
-        link: "/dailytask"
+        link: "/travel"
     },
     {
         id: "Shopping list",
-        link: "/dailytask"
+        link: "/shopping"
     }
 ]
 

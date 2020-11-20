@@ -7,8 +7,9 @@ import Counter from "./counter";
 
 
 const Item = styled.li`
+  width: inherit;
   display: grid;
-  grid-template-columns: ${(props) => props.showCounter ? "5% 180px 20% 10% 10%": "5% 240px 10% 10%"};
+  grid-template-columns: ${(props) => props.showCounter ? "5% auto 22% 10% 5%": "5% auto 10% 5%"};
   width: 100%;
   align-items: center;
 `;

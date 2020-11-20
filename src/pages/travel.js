@@ -13,6 +13,7 @@ const Examples = styled.div`
   font-size: 14px;
   font-family: "Roboto";
   margin-top: 1rem;
+  padding: 0 1rem;
 `;
 
 const TravelList = () => {

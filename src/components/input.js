@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 const Container = styled.div`
     position: relative;
+    margin:auto;
     box-sizing: border-box;
     width: ${(props) => props.width};
-    margin: auto;
     padding: 7px;
     input{
         background-color: white;
