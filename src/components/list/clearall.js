@@ -5,7 +5,8 @@ import DeleteImg from "../../assets/delete-icon.png";
 
 const Container = styled.div`
     display: flex;
-    justify-content: end;
+    align-items: center;
+    justify-content: flex-end;
 `;
 
 const Text = styled.div``;
@@ -23,9 +24,9 @@ const DeleteIcon = styled.img`
 
 const Clear = ({onDeleteList}) => {
     return(
-        <Container onClick={onDeleteList}>
+        <Container >
             <Text>Clear all</Text>
-            <Delete>
+            <Delete onClick={onDeleteList}>
                 <DeleteIcon src={DeleteImg} alt="Delete list"/>
             </Delete>
         </Container>

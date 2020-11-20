@@ -5,7 +5,9 @@ import {NavLink} from "react-router-dom";
 import Home from "../pages/home";
 import EasyList from "../pages/easylist";
 import DailyTask from "../pages/dailytask";
-import TypeOfList from "../pages/typeoflists";
+import TravelList from "../pages/travel";
+import ShoppingList from "../pages/shopping";
+
 import {useLoginContext} from "../loginProvider";
 import {colors} from "../listProvider";
 
@@ -18,19 +20,25 @@ const data = [
         link: "/"
     },
     {
-        id: "Easy list",
-        path: EasyList,
-        link: "/easylist"
-    },
-    {
         id: "Daily tasks",
         path: DailyTask,
         link: "/dailytask"
     },
     {
-        id: "Special occasions",
-        path: TypeOfList,
-        link: "/specialoccasion"
+        id: "Easy list",
+        path: EasyList,
+        link: "/easylist"
+    },
+
+    {
+        id: "Travel list",
+        path: TravelList,
+        link: "/travel"
+    },
+    {
+        id: "Shopping list",
+        path: ShoppingList,
+        link: "/shopping"
     }
 ]
 

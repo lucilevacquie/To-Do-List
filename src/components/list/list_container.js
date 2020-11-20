@@ -9,7 +9,7 @@ import ClearAll from "./clearall";
 
 const ListContainer = styled.div`
   display: grid;
-  grid-template-rows: 80px 1fr;
+  grid-template-rows:${(props) => props.showExamples ? "80px 50px 1fr 25px" : "80px 1fr 25px"} ;
   margin: 0 25px;
   font-family: "Roboto", sans-serif;
 `;
@@ -39,75 +39,78 @@ const Add = styled.img`
 `;
 
 const ItemList = styled.ul`
-    height: 100%;
-    line-height: 2rem;
-    padding-left: 0;
+  height: 100%;
+  line-height: 2rem;
+  padding-left: 0;
 `;
 
-const List = ({list, updateList}) => {
+const List = ({list, updateList, showExamples, showCounter}) => {
 
-    const [newItem, setNewItem] = useState("");
+  const [newItem, setNewItem] = useState("");
 
-    const addItem = e => {
-        e.preventDefault();
-        const id = v4();
-        const item = {value:newItem, quantity:0, checked:false}
-        updateList({
-            ...list, 
-            [id]:item
-        })
-        setNewItem("");
-    }
+  const addItem = e => {
+      e.preventDefault();
+      const id = v4();
+      const item = {value:newItem, quantity:0, checked:false}
+      updateList({
+          ...list, 
+          [id]:item
+      })
+      setNewItem("");
+  }
 
-    const updateItem = (id, property, newValue) => {
-      const updatedItem = list[id];
-      updatedItem[property] = newValue;
-      updateList({...list, [id]:updatedItem});
-    }
+  const updateItem = (id, property, newValue) => {
+    const updatedItem = list[id];
+    updatedItem[property] = newValue;
+    updateList({...list, [id]:updatedItem});
+  }
 
-    const deleteList = () => {
-      return updateList({});
-    }
+  const deleteList = () => {
+    return updateList({});
+  }
 
-    const onChange = (e) => {
-      setNewItem(e.target.value)
-    }
+  const onChange = (e) => {
+    setNewItem(e.target.value)
+  }
 
-    return (
-        <ListContainer>
-        
-          <InputWrapper onSubmit={(event) => addItem(event)}>
-            <StyledInput
-              width = "240px"
-              color = "black"
-              name = "item"
-              type = "text"
-              placeholder = "Type your task here..."
-              value = {newItem}
-              onChange = {onChange}>
-            </StyledInput>
-            <AddButton type="submit">
-              <Add src={AddIcon} alt="Add item"/>
-            </AddButton>
-          </InputWrapper>
+  return (
+      <ListContainer>
+      
+        <InputWrapper onSubmit={(event) => addItem(event)}>
+          <StyledInput
+            width = "240px"
+            color = "black"
+            name = "item"
+            type = "text"
+            placeholder = "Type your task here..."
+            value = {newItem}
+            onChange = {onChange}>
+          </StyledInput>
+          <AddButton type="submit">
+            <Add src={AddIcon} alt="Add item"/>
+          </AddButton>
+        </InputWrapper>
 
+        <ItemList>
+          {Object.keys(list).map(id => {
+              const item = list[id]
+              return (
+                  <ListItem 
+                      key={id}
+                      onUpdateItem={updateItem}
+                      item={item} 
+                      id={id}
+                      showCounter = {showCounter}
+                  />
+              )
+          })}
+        </ItemList>
+
+        {Object.keys(list).length > 0 &&
           <ClearAll onDeleteList={deleteList}/>
-          
-          <ItemList>
-            {Object.keys(list).map(id => {
-                const item = list[id]
-                return (
-                    <ListItem 
-                        key={id}
-                        onUpdateItem={updateItem}
-                        item={item} 
-                        id={id}
-                    />
-                )
-            })}
-          </ItemList>
-        </ListContainer>
-    )
+        }
+      </ListContainer>
+  )
 }
 
 export default List;

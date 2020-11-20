@@ -17,7 +17,7 @@ const ShoppingList = () => {
     return (
         <Container>
             <Title>Shopping List</Title>
-            <List list={shoppingList} updateList={setShoppingList}/>
+            <List showCounter list={shoppingList} updateList={setShoppingList}/>
         </Container>
     )
 }

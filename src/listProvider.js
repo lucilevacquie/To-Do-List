@@ -10,7 +10,6 @@ export const Lists = {
     Easy : "easylist",
     Shopping : "shoppinglist",
     Travel : "travellist",
-    Raclette : "raclettelist",
 }
 
 export const colors = {
@@ -28,29 +27,15 @@ const ListProvider = ({ children }) => {
     const [shoppingList, setShoppingList] = useState(getList(Lists.Shopping))
     useEffect(() => {putList(Lists.Shopping, shoppingList)}, [shoppingList])
 
-    const [travelList, setTravelList] = useState({
-        "Passport":{
-            value: "Passport",
-            checked:false
-        },
-        "Charger":{
-            value: "Phone charger",
-            checked:false
-        },
-        ...getList(Lists.Travel),
-    })
+    const [travelList, setTravelList] = useState(getList(Lists.Travel))
     useEffect(() => {putList(Lists.Travel, travelList)}, [travelList])
-
-    const [racletteList, setRacletteList] = useState(getList(Lists.Raclette))
-    useEffect(() => {putList(Lists.Raclette, racletteList)}, [racletteList])
 
 
     const isListCreated = () => {
         return Object.keys(easyList).length > 0
         || Object.keys(dailyTaskList).length > 0
         || Object.keys(shoppingList).length > 0
-        || Object.keys(travelList).length > 2
-        || Object.keys(racletteList).length > 0
+        || Object.keys(travelList).length > 0
     }
 
     const noOfDone = (list) => Object.keys(list).filter((id) => list[id].checked).length
@@ -79,12 +64,6 @@ const ListProvider = ({ children }) => {
             link: "/travel",
             noOfItems: Object.keys(travelList).length,
             noOfDone: noOfDone(travelList)
-        },
-        {
-            id: "Raclette list",
-            link: "/raclette",
-            noOfItems: Object.keys(racletteList).length,
-            noOfDone: noOfDone(racletteList)
         }
     ]
 
@@ -97,8 +76,6 @@ const ListProvider = ({ children }) => {
         setShoppingList,
         travelList, 
         setTravelList,
-        racletteList,
-        setRacletteList,
         routes,
         isListCreated
     }

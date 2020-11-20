@@ -53,11 +53,13 @@ const Options = styled.div`
     height: ${(props) => props.showPanel ? "auto" : "0"};
     overflow: hidden;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row-reverse;
     position: absolute;
     margin-top: 7px;
     background-color: white;
     z-index: 1;
+    right: 0;
+    top: -8px;
 `;
 
 const Option = styled.option`

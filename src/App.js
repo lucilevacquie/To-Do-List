@@ -6,7 +6,6 @@ import Welcome from "./pages/welcome";
 import Home from "./pages/home";
 import EasyList from "./pages/easylist";
 import DailyTask from "./pages/dailytask";
-import TypeOfList from "./pages/typeoflists";
 import Travel from "./pages/travel";
 import Shopping from "./pages/shopping";
 import ChoiceBoardHome from "./pages/choiceboard-home";
@@ -39,12 +38,6 @@ const data = [
     auth: true,
     component: DailyTask,
     path: "/dailytask"
-  },
-  {
-    id: "Special occasion",
-    auth: true,
-    component: TypeOfList,
-    path: "/specialoccasion"
   },
   {
     id: "Travel List",

@@ -5,12 +5,10 @@ import Dropdown from "./dropdown";
 import Edit from "./edit";
 import Counter from "./counter";
 
-import {useListContext} from "../../listProvider";
-
 
 const Item = styled.li`
   display: grid;
-  grid-template-columns: 5% 58% 21% 10% 10%;
+  grid-template-columns: ${(props) => props.showCounter ? "5% 180px 20% 10% 10%": "5% 240px 10% 10%"};
   width: 100%;
   align-items: center;
 `;
@@ -64,16 +62,14 @@ const Value = styled.div`
 `;
 
 
-const ListItem = ({item, onUpdateItem, id}) => {
+const ListItem = ({item, onUpdateItem, id, showCounter}) => {
 
     const [color, setColor] = useState("#000000");
 
     const [edit, setEdit] = useState(false);
 
-    const {shoppingList} = useListContext();
-
     return (
-        <Item>
+        <Item showCounter={showCounter}>
             <Checkbox type="checkbox" checked={item.checked} onChange={e => onUpdateItem(id, "checked", e.target.checked)}/>
             {edit ? 
                 <Text onSubmit={() => setEdit(!edit)}>
@@ -81,8 +77,8 @@ const ListItem = ({item, onUpdateItem, id}) => {
                 </Text> :
                 <Value color={color} checked={item.checked}>{item.value}</Value>
             }
-            {shoppingList && 
-              <Counter/>
+            {showCounter && 
+              <Counter showCounter={showCounter}/>
             }
             <Dropdown onSetColor={setColor}/>
             <Edit editText={() => setEdit(!edit)}/>

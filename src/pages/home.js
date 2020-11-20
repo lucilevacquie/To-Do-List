@@ -10,18 +10,22 @@ import {useListContext} from "../listProvider";
 
 const data = [
     {
+        id: "Daily task",
+        link: "/dailytask",
+    },  
+    {
         id: "Easy list",
         link: "/easylist",
     },
+
     {
-        id: "Daily task",
-        link: "/dailytask",
+        id: "Travel list",
+        link: "/dailytask"
     },
     {
-        id: "Special occasions",
-        link: "/specialoccasion",
+        id: "Shopping list",
+        link: "/dailytask"
     }
-
 ]
 
 const Container = styled.div`

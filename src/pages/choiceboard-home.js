@@ -8,18 +8,22 @@ import {useLoginContext} from "../loginProvider";
 
 const data = [
     {
-        id: "Easy list",
-        link: "/easylist",
-    },
-    {
         id: "Daily task",
-        link: "/dailytask",
+        link: "/dailytask"
     },
     {
-        id: "Special occasions",
-        link: "/specialoccasion",
-    }
+        id: "Easy list",
+        link: "/easylist"
+    },
 
+    {
+        id: "Travel list",
+        link: "/dailytask"
+    },
+    {
+        id: "Shopping list",
+        link: "/dailytask"
+    }
 ]
 
 const Container = styled.div`
